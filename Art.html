@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ytroz College - Arts Programs</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #6a1b9a;
+            --secondary-color: #9c27b0;
+            --accent-color: #ff9800;
+            --light-color: #f5f5f5;
+            --dark-color: #212121;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-color);
+        }
+        
+        .navbar {
+            background-color: var(--primary-color);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-weight: 500;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn-primary {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background-color: #e68a00;
+            border-color: #e68a00;
+        }
+        
+        .program-card {
+            transition: transform 0.3s;
+            margin-bottom: 30px;
+            border: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+        }
+        
+        .faculty-card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .faculty-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--light-color);
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-card {
+            padding: 30px;
+            border-radius: 10px;
+            background-color: var(--light-color);
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            z-index: 99;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Ytroz College</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#programs">Programs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faculty">Faculty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <h1 class="hero-title">Arts Programs at Ytroz College</h1>
+            <p class="hero-subtitle">Nurturing creativity and artistic expression through our comprehensive arts education</p>
+            <a href="#programs" class="btn btn-primary btn-lg">Explore Programs</a>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="py-5" id="programs">
+        <div class="container">
+            <h2 class="text-center section-title">Our Creative Arts Programs</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card program-card">
+                        <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="Visual Arts">
+                        <div class="card-body">
+                            <h5 class="card-title">Visual Arts</h5>
+                            <p class="card-text">Develop your artistic vision through painting, drawing, sculpture, and digital media in our state-of-the-art studios.</p>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#visualArtsModal">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card program-card">
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="Music">
+                        <div class="card-body">
+                            <h5 class="card-title">Music</h5>
+                            <p class="card-text">Master your instrument, composition, and performance with guidance from world-class musicians.</p>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#musicModal">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card program-card">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="Theater">
+                        <div class="card-body">
+                            <h5 class="card-title">Theater</h5>
+                            <p class="card-text">Explore acting, directing, stage design, and production in our professional theater facilities.</p>
+                            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#theaterModal">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Section -->
+    <section class="py-5 bg-light" id="faculty">
+        <div class="container">
+            <h2 class="text-center section-title">Our Distinguished Faculty</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="faculty-card">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="faculty-img" alt="Professor Sarah Chen">
+                        <h4>Prof. Sarah Chen</h4>
+                        <p class="text-muted">Visual Arts Department Head</p>
+                        <p>Former Guggenheim Fellow with exhibitions in 12 countries.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="faculty-card">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="faculty-img" alt="Professor David Park">
+                        <h4>Prof. David Park</h4>
+                        <p class="text-muted">Music Composition</p>
+                        <p>Grammy-nominated composer and conductor.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="faculty-card">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" class="faculty-img" alt="Professor Maria Rodriguez">
+                        <h4>Prof. Maria Rodriguez</h4>
+                        <p class="text-muted">Theater and Performance</p>
+                        <p>Broadway veteran and Tony Award winner.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5" id="testimonials">
+        <div class="container">
+            <h2 class="text-center section-title">Student Testimonials</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/33.jpg" class="testimonial-img me-3" alt="Emily Johnson">
+                            <div>
+                                <h5>Emily Johnson</h5>
+                                <p class="text-muted mb-0">Visual Arts '22</p>
+                            </div>
+                        </div>
+                        <p>"The Visual Arts program transformed my perspective on art. The faculty's guidance helped me develop my first gallery exhibition."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/45.jpg" class="testimonial-img me-3" alt="Michael Tan">
+                            <div>
+                                <h5>Michael Tan</h5>
+                                <p class="text-muted mb-0">Music '21</p>
+                            </div>
+                        </div>
+                        <p>"The music program's industry connections helped me land an internship with a major symphony orchestra while still in school."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/12.jpg" class="testimonial-img me-3" alt="Sophia Martinez">
+                            <div>
+                                <h5>Sophia Martinez</h5>
+                                <p class="text-muted mb-0">Theater '23</p>
+                            </div>
+                        </div>
+                        <p>"Performing in our professional-grade theater gave me the confidence and skills to audition successfully for regional productions."</p>
+                        <div class="text-warning">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5 bg-light" id="contact">
+        <div class="container">
+            <h2 class="text-center section-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="program" class="form-label">Program of Interest</label>
+                            <select class="form-select" id="program">
+                                <option value="">Select a program</option>
+                                <option value="visual-arts">Visual Arts</option>
+                                <option value="music">Music</option>
+                                <option value="theater">Theater</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4">
+                        <h4>Ytroz College of Arts</h4>
+                        <p class="mb-4">123 Creative Avenue<br>Arts District, CA 90210<br>United States</p>
+                        
+                        <h5>Admissions Office</h5>
+                        <p><i class="fas fa-phone me-2"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-envelope me-2"></i> arts@ytroz.edu</p>
+                        
+                        <h5 class="mt-4">Office Hours</h5>
+                        <p>Monday-Friday: 9am-5pm<br>Saturday: 10am-2pm<br>Sunday: Closed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Ytroz College</h5>
+                    <p>Dedicated to excellence in arts education since 1985.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white">Home</a></li>
+                        <li><a href="#programs" class="text-white">Programs</a></li>
+                        <li><a href="#faculty" class="text-white">Faculty</a></li>
+                        <li><a href="#testimonials" class="text-white">Testimonials</a></li>
+                        <li><a href="#contact" class="text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Newsletter</h5>
+                    <p>Subscribe to our newsletter for updates on performances and exhibitions.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 bg-secondary">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Ytroz College. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Program Modals -->
+    <!-- Visual Arts Modal -->
+    <div class="modal fade" id="visualArtsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Visual Arts Program</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="img-fluid mb-3" alt="Visual Arts">
+                    <h6>Program Overview</h6>
+                    <p>Our Visual Arts program offers a comprehensive curriculum that combines traditional techniques with contemporary digital media. Students develop technical skills while cultivating their unique artistic voice.</p>
+                    
+                    <h6 class="mt-4">Areas of Study</h6>
+                    <ul>
+                        <li>Painting and Drawing</li>
+                        <li>Sculpture and 3D Design</li>
+                        <li>Digital Art and Photography</li>
+                        <li>Art History and Theory</li>
+                        <li>Professional Practices</li>
+                    </ul>
+                    
+                    <h6 class="mt-4">Career Paths</h6>
+                    <p>Graduates pursue careers as studio artists, illustrators, gallery managers, art directors, and educators.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Music Modal -->
+    <div class="modal fade" id="musicModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Music Program</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="img-fluid mb-3" alt="Music">
+                    <h6>Program Overview</h6>
+                    <p>The Music program at Ytroz College provides rigorous training in performance, composition, and music theory, with opportunities to collaborate across disciplines.</p>
+                    
+                    <h6 class="mt-4">Areas of Study</h6>
+                    <ul>
+                        <li>Instrumental/Vocal Performance</li>
+                        <li>Music Composition and Theory</li>
+                        <li>Music Technology and Production</li>
+                        <li>Music History and Ethnomusicology</li>
+                        <li>Ensemble Performance</li>
+                    </ul>
+                    
+                    <h6 class="mt-4">Career Paths</h6>
+                    <p>Graduates become performers, composers, music teachers, sound engineers, and arts administrators.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Theater Modal -->
+    <div class="modal fade" id="theaterModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Theater Program</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" class="img-fluid mb-3" alt="Theater">
+                    <h6>Program Overview</h6>
+                    <p>Our Theater program combines practical training with academic study, offering students opportunities to perform, direct, design, and produce in our professional theater facilities.</p>
+                    
+                    <h6 class="mt-4">Areas of Study</h6>
+                    <ul>
+                        <li>Acting and Performance</li>
+                        <li>Directing and Dramaturgy</li>
+                        <li>Stage and Costume Design</li>
+                        <li>Theater History and Criticism</li>
+                        <li>Technical Theater and Production</li>
+                    </ul>
+                    
+                    <h6 class="mt-4">Career Paths</h6>
+                    <p>Graduates work as actors, directors, stage managers, designers, and arts educators in theater, film, and television.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const program = document.getElementById('program').value;
+            const message = document.getElementById('message').value;
+            
+            // Here you would typically send the data to a server
+            console.log('Form submitted:', { name, email, program, message });
+            
+            // Show success message
+            alert('Thank you for your message! We will contact you soon.');
+            
+            // Reset form
+            contactForm.reset();
+        });
+        
+        // Change navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = '#6a1b9a';
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.backgroundColor = '#6a1b9a';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

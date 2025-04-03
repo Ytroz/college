@@ -1,0 +1,602 @@
+/* Modern Design Refresh */
+:root {
+    --primary-color: #4361ee;  
+    --primary-dark: #3a0ca3;
+    --secondary-color: #4a4e69;
+    --dark-color: #14213d;     /* Deep navy */
+    /* --light-color: #f8f9fa; */
+    --accent-color: #4cc9f0;   /* Bright sky blue */
+    --gradient-primary: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+    --gradient-accent: linear-gradient(135deg, #4cc9f0 0%, #4895ef 100%);
+    --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    padding-top: 80px;
+    color: var(--dark-color);
+    line-height: 1.7;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+}
+
+span{
+    /* border: 2px solid blue; */
+    color: rgb(10, 78, 117);
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    font-weight: 800;
+    font-size: 2.4rem;
+    color: var(--dark-color);
+    letter-spacing: -0.5px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 5px;
+    /* background: var(--gradient-accent); */
+    border-radius: 3px;
+}
+
+.lead {
+    /* color: var(--secondary-color); */
+    font-size: 1.25rem;
+    font-weight: 400;
+    max-width: 700px;
+}
+
+/* Hero Section - Modern Glass Morphism */
+.hero-section {
+    background: url('/computer_programming.jpg');
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background:linear-gradient(rgb(20, 65, 104)); */
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(135deg, rgba(3, 20, 27, 0.9) 0%, rgba(51, 98, 112, 0.8) 100%); */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-width: 800px;
+}
+
+.hero-section h1 {
+    font-size: 3.75rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    /* color: rgb(13, 81, 90); */
+    letter-spacing: -1px;
+}
+
+.hero-section h2 {
+    font-size: 1.8rem;
+    font-weight: 400;
+    /* color: rgba(255, 255, 255, 0.9); */
+    margin-bottom: 2.5rem;
+}
+
+/* Buttons - Modern with subtle animations */
+.btn {
+    border-radius: 12px;
+    font-weight: 600;
+    padding: 1rem 2.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    border: none;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+}
+
+.btn-outline-light {
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+}
+
+.btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+}
+
+/* About Section - Modern Layout */
+.about-image {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-image:hover {
+    transform: perspective(1000px) rotateX(0) rotateY(0) scale(1.05);
+}
+
+.stats-box {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--card-shadow);
+    position: relative;
+    z-index: 1;
+    margin-top: -50px;
+    margin-left: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.feature-icon {
+    background: var(--gradient-accent);
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.75rem;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+}
+
+/* Cards - Modern Neumorphic Style */
+.card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: var(--card-shadow);
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    font-weight: 700;
+    padding: 1.5rem;
+    background: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.course-card {
+    border-top: 5px solid var(--accent-color);
+}
+
+/* Faculty Cards */
+.faculty-card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: all 0.4s ease;
+}
+
+.faculty-card img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin-top: -40px;
+}
+
+.faculty-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+/* Testimonials - Modern Style */
+.testimonial-card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: var(--card-shadow);
+    border-left: 5px solid var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Contact Section */
+.contact-icon {
+    background: var(--gradient-accent);
+    color: white;
+    width: 70px;
+    height: 70px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+}
+
+/* Forms - Modern Style */
+.form-control, .form-select {
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 4px rgba(76, 201, 240, 0.1);
+    background: white;
+}
+
+/* Back to Top Button - Floating Action */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: var(--gradient-accent);
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 25px rgba(76, 201, 240, 0.3);
+    border: none;
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Navbar - Glass Morphism */
+.navbar {
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.navbar-brand {
+    font-weight: 800;
+    font-size: 1.4rem;
+    letter-spacing: -0.5px;
+}
+
+.nav-link {
+    font-weight: 600;
+    padding: 0.75rem 1.25rem !important;
+    margin: 0 0.5rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    color: var(--secondary-color) !important;
+}
+
+.nav-link:hover, .nav-link.active {
+    background: rgba(67, 97, 238, 0.1);
+    color: var(--primary-color) !important;
+}
+
+/* Footer - Modern Dark */
+footer {
+    background: var(--dark-color);
+    color: white;
+    padding: 5rem 0 2rem;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: var(--gradient-accent);
+}
+
+footer a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+footer a:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+.social-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .hero-section h1 {
+        font-size: 3.25rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-section {
+        height: auto;
+        padding: 120px 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.75rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .stats-box {
+        margin: 2rem auto 0;
+        left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    
+    .hero-content {
+        padding: 2rem;
+        text-align: center;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .feature-icon {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .back-to-top {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+
+    /* ===== Animation Keyframes ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ===== Updated Hero Section ===== */
+.hero-section {
+    animation: gradientShift 12s ease infinite;
+    background-size: 200% 200%;
+}
+
+.hero-content {
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.hero-section h1 {
+    animation: fadeInUp 0.8s ease-out 0.7s both;
+}
+
+.hero-section h2 {
+    animation: fadeInUp 0.8s ease-out 0.9s both;
+}
+
+/* ===== Scroll-triggered Section Animations ===== */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Enhanced Button Animations ===== */
+.btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.6s;
+}
+
+.btn-primary:hover::after {
+    left: 100%;
+}
+
+/* ===== Card Hover Effects ===== */
+.card {
+    transform: perspective(1000px) translateZ(0);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1), box-shadow 0.4s;
+}
+
+.card:hover {
+    transform: perspective(1000px) translateZ(50px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ===== Pulse Animation for Icons ===== */
+.feature-icon, .contact-icon {
+    animation: pulse 3s infinite;
+}
+
+.feature-icon:hover, .contact-icon:hover {
+    animation: none;
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* ===== Stats Box Entrance ===== */
+.stats-box {
+    animation: fadeInUp 1s ease-out 1.2s both;
+}
+
+/* ===== Faculty Card 3D Tilt ===== */
+.faculty-card {
+    transform-style: preserve-3d;
+}
+
+.faculty-card:hover img {
+    transform: translateZ(20px);
+}
+
+/* ===== Testimonial Card Float ===== */
+.testimonial-card {
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px) rotate(1deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* ===== Navbar Link Underline Animation ===== */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 80%;
+    left: 10%;
+}
+
+/* ===== Back-to-Top Bounce ===== */
+.back-to-top.show {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-15px); }
+    60% { transform: translateY(-7px); }
+}
+}
