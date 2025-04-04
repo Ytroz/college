@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language & Tradition | YTROZ College</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --yoruba: #e67e22;
+            --igbo: #27ae60;
+            --hausa: #f39c12;
+            --ijebu: #8e44ad;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+        }
+        
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .navbar-brand span {
+            color: var(--secondary);
+        }
+        
+        .nav-link {
+            color: rgb(248, 81, 4) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            background-color: var(--secondary);
+        }
+        
+        .hero {
+            background: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87') no-repeat center center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            border-color: var(--secondary);
+        }
+        
+        .btn-primary:hover {
+            /* color: #27ae60; */
+            background-color:#2bc087;
+            border-color: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        .language-card {
+            background-color: rgb(255, 255, 255);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+            border-top: 4px solid;
+        }
+
+    
+    
+
+        
+        .language-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .yoruba-card {
+            border-color: var(--yoruba);
+        }
+        
+        .igbo-card {
+            border-color: var(--igbo);
+        }
+        
+        .hausa-card {
+            border-color: var(--hausa);
+        }
+        
+        .ijebu-card {
+            border-color: var(--ijebu);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .yoruba-icon {
+            color: var(--yoruba);
+        }
+        
+        .igbo-icon {
+            color: var(--igbo);
+            color: #27ae60;
+        }
+        
+        .hausa-icon {
+            color: var(--hausa);
+        }
+        
+        .ijebu-icon {
+        
+            color: var(--ijebu);
+        }
+        
+        .course-structure {
+            background-color: var(--light);
+            padding: 4rem 0;
+        }
+        
+        .module {
+            background-color: white;
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            border-radius: 0 4px 4px 0;
+            height: 100%;
+        }
+        
+        .faculty-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        
+        .culture-image {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .tab-content {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .nav-tabs .nav-link.active {
+            font-weight: bold;
+            border-bottom: 3px solid var(--secondary);
+        }
+        
+        .phrase-card {
+            border-left: 4px solid;
+            margin-bottom: 15px;
+            
+        }
+        
+        .phrase-card.yoruba {
+            border-color: var(--yoruba);
+            
+        }
+        
+        .phrase-card.igbo {
+            border-color: var(--igbo);
+        }
+        
+        .phrase-card.hausa {
+            border-color: var(--hausa);
+        }
+        
+        .phrase-card.ijebu {
+            border-color: var(--ijebu);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="/images.png" alt="" class="me-2" width="13%">YTROZ <span>College</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#languages">Languages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#course">Course</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faculty">Faculty</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#admissions">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="display-4 fw-bold mb-4">Language & Tradition Studies</h1>
+            <p class="lead mb-4">Preserving and promoting the rich cultural heritage of Nigeria through the study of Yoruba, Igbo, Hausa, and Ijebu languages and traditions.</p>
+            <a href="#admissions" class="btn btn-primary btn-lg">Enroll Now</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">About Our Program</h2>
+            <div class="row g-4 mb-5">
+                <div class="col-md-6">
+                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87" alt="Nigerian Culture" class="img-fluid rounded">
+                </div>
+                <div class="col-md-6">
+                    <h3>Preserving Cultural Heritage</h3>
+                    <p>Our Language and Tradition program at YTROZ College is dedicated to the study and preservation of Nigeria's rich linguistic and cultural heritage. We offer comprehensive courses in four major Nigerian languages: Yoruba, Igbo, Hausa, and Ijebu.</p>
+                    <p>Students will gain not only language proficiency but also deep understanding of the traditions, customs, folklore, and history associated with each language group.</p>
+                    <a href="#languages" class="btn btn-outline-primary">Explore Languages</a>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-book"></i></div>
+                        <h3>Language Proficiency</h3>
+                        <p>Develop fluency in speaking, reading, and writing in your chosen language of study.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-people-fill"></i></div>
+                        <h3>Cultural Immersion</h3>
+                        <p>Experience the traditions, customs, and values of each language group through immersive learning.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="bi bi-mic"></i></div>
+                        <h3>Oral Traditions</h3>
+                        <p>Study the rich oral literature including proverbs, folktales, and poetry of each culture.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section id="languages" class="course-structure py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Languages of Study</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="language-card yoruba-card">
+                        <div class="feature-icon yoruba-icon"><i class="bi bi-translate"></i></div>
+                        <h3>Yoruba</h3>
+                        <p>Study the Yoruba language spoken by over 40 million people in Nigeria and the diaspora, along with its rich cultural traditions.</p>
+                        <button class="btn btn-outline-dark" onclick="showLanguage('yoruba')">Learn More</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="language-card igbo-card">
+                        <div class="feature-icon igbo-icon"><i class="bi bi-translate"></i></div>
+                        <h3>Igbo</h3>
+                        <p>Explore the Igbo language and culture, including its proverbs, folklore, and traditional governance systems.</p>
+                        <button class="btn btn-outline-dark" onclick="showLanguage('igbo')">Learn More</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="language-card hausa-card">
+                        <div class="feature-icon hausa-icon"><i class="bi bi-translate"></i></div>
+                        <h3>Hausa</h3>
+                        <p>Learn Hausa, the most widely spoken language in West Africa, and its associated traditions and history.</p>
+                        <button class="btn btn-outline-dark" onclick="showLanguage('hausa')">Learn More</button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="language-card ijebu-card">
+                        <div class="feature-icon ijebu-icon"><i class="bi bi-translate"></i></div>
+                        <h3>Ijebu</h3>
+                        <p>Discover the Ijebu dialect of Yoruba with its unique linguistic features and cultural practices.</p>
+                        <button class="btn btn-outline-dark" onclick="showLanguage('ijebu')">Learn More</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Language Details -->
+            <div class="mt-5" id="languageDetails">
+                <ul class="nav nav-tabs" id="languageTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="yoruba-tab" data-bs-toggle="tab" data-bs-target="#yoruba-tab-pane" type="button" role="tab">Yoruba</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="igbo-tab" data-bs-toggle="tab" data-bs-target="#igbo-tab-pane" type="button" role="tab">Igbo</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="hausa-tab" data-bs-toggle="tab" data-bs-target="#hausa-tab-pane" type="button" role="tab">Hausa</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="ijebu-tab" data-bs-toggle="tab" data-bs-target="#ijebu-tab-pane" type="button" role="tab">Ijebu</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="languageTabContent">
+                    <div class="tab-pane fade show active" id="yoruba-tab-pane" role="tabpanel" aria-labelledby="yoruba-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="mt-3">Yoruba Language & Culture</h3>
+                                <p>The Yoruba language is spoken by over 40 million people in Nigeria and in diaspora communities around the world. Our program covers:</p>
+                                <ul>
+                                    <li>Yoruba grammar and syntax</li>
+                                    <li>Traditional Yoruba poetry (Ewi) and proverbs (Owe)</li>
+                                    <li>Yoruba history and kingdoms</li>
+                                    <li>Traditional religion and Ifá divination system</li>
+                                    <li>Yoruba music, dance, and festivals</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card phrase-card yoruba">
+                                    <div class="card-body">
+                                        <h5>Common Yoruba Phrases</h5>
+                                        <p><strong>Hello:</strong> Ẹ n lẹ (Ẹ n lẹ o for elders)</p>
+                                        <p><strong>How are you?:</strong> Ṣe daadaa ni?</p>
+                                        <p><strong>Thank you:</strong> Ẹ ṣe</p>
+                                        <p><strong>Goodbye:</strong> O dabo</p>
+                                        <p><strong>Welcome:</strong> Ẹ ku abọ</p>
+                                    </div>
+                                </div>
+                                <img src="/Yoruba-Dancers-931x598.jpg" alt="Yoruba Culture" class="img-fluid rounded mt-3" width="50%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="igbo-tab-pane" role="tabpanel" aria-labelledby="igbo-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="mt-3">Igbo Language & Culture</h3>
+                                <p>The Igbo language is spoken by over 30 million people primarily in southeastern Nigeria. Our program covers:</p>
+                                <ul>
+                                    <li>Igbo grammar and dialects</li>
+                                    <li>Igbo proverbs (Ilu) and folktales (Ifo)</li>
+                                    <li>Igbo-Ukwu art and archaeology</li>
+                                    <li>Traditional political systems and the Igbo republic</li>
+                                    <li>New Yam Festival (Iri Ji) and other cultural celebrations</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card phrase-card igbo">
+                                    <div class="card-body">
+                                        <h5>Common Igbo Phrases</h5>
+                                        <p><strong>Hello:</strong> Ndewo</p>
+                                        <p><strong>How are you?:</strong> Kedu ka ị mere?</p>
+                                        <p><strong>Thank you:</strong> Daalụ</p>
+                                        <p><strong>Goodbye:</strong> Ka ọ dị</p>
+                                        <p><strong>Welcome:</strong> Nnọọ</p>
+                                    </div>
+                                </div>
+                                <img src="/igb.webp" alt="Igbo Culture" class="img-fluid rounded mt-3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="hausa-tab-pane" role="tabpanel" aria-labelledby="hausa-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="mt-3">Hausa Language & Culture</h3>
+                                <p>Hausa is the most widely spoken language in West Africa, with over 70 million speakers. Our program covers:</p>
+                                <ul>
+                                    <li>Hausa grammar and Ajami script</li>
+                                    <li>Hausa poetry (Wakoki) and storytelling</li>
+                                    <li>History of Hausa kingdoms and the Sokoto Caliphate</li>
+                                    <li>Traditional Hausa architecture and city-states</li>
+                                    <li>Durbar festival and other cultural celebrations</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card phrase-card hausa">
+                                    <div class="card-body">
+                                        <h5>Common Hausa Phrases</h5>
+                                        <p><strong>Hello:</strong> Sannu</p>
+                                        <p><strong>How are you?:</strong> Kana lahiya?</p>
+                                        <p><strong>Thank you:</strong> Na gode</p>
+                                        <p><strong>Goodbye:</strong> Sai an jima</p>
+                                        <p><strong>Welcome:</strong> Barka da zuwa</p>
+                                    </div>
+                                </div>
+                                <img src="/h.jpg" alt="Hausa Culture" class="img-fluid rounded mt-3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="ijebu-tab-pane" role="tabpanel" aria-labelledby="ijebu-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="mt-3">Ijebu Language & Culture</h3>
+                                <p>The Ijebu dialect is a distinct variety of Yoruba spoken in southwestern Nigeria. Our program covers:</p>
+                                <ul>
+                                    <li>Ijebu phonology and unique vocabulary</li>
+                                    <li>Differences between Ijebu and Standard Yoruba</li>
+                                    <li>History of the Ijebu kingdom</li>
+                                    <li>Ijebu traditional religion and practices</li>
+                                    <li>Ijebu-Ode festival and other cultural events</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card phrase-card ijebu">
+                                    <div class="card-body">
+                                        <h5>Common Ijebu Phrases</h5>
+                                        <p><strong>Hello:</strong> Ẹ n lẹ</p>
+                                        <p><strong>How are you?:</strong> Ṣe daadaa ni?</p>
+                                        <p><strong>Thank you:</strong> Ẹ ṣe</p>
+                                        <p><strong>Goodbye:</strong> O dabo</p>
+                                        <p><strong>Welcome:</strong> Ẹ ku abọ</p>
+                                    </div>
+                                </div>
+                                <img src="/Agemo-1.jpg" alt="Ijebu Culture" class="img-fluid rounded mt-3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Structure Section -->
+    <section id="course" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Course Structure</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="module">
+                        <h3>Year 1: Foundations</h3>
+                        <ul>
+                            <li>Introduction to Nigerian Languages</li>
+                            <li>Phonetics and Phonology</li>
+                            <li>Basic Grammar Structures</li>
+                            <li>Cultural Anthropology</li>
+                            <li>Oral Traditions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="module">
+                        <h3>Year 2: Intermediate</h3>
+                        <ul>
+                            <li>Advanced Grammar</li>
+                            <li>Language Documentation</li>
+                            <li>Traditional Governance Systems</li>
+                            <li>Folklore Studies</li>
+                            <li>Comparative Linguistics</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="module">
+                        <h3>Year 3: Specialization</h3>
+                        <ul>
+                            <li>Advanced Language Proficiency</li>
+                            <li>Literary Traditions</li>
+                            <li>Cultural Preservation</li>
+                            <li>Language Revitalization</li>
+                            <li>Field Research Methods</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="module">
+                        <h3>Year 4: Capstone</h3>
+                        <ul>
+                            <li>Thesis Research</li>
+                            <li>Community Engagement Project</li>
+                            <li>Language Teaching Methods</li>
+                            <li>Cultural Documentation</li>
+                            <li>Professional Applications</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="module">
+                        <h3>Elective Modules</h3>
+                        <ul>
+                            <li>Traditional Music and Dance</li>
+                            <li>Indigenous Knowledge Systems</li>
+                            <li>African Traditional Religion</li>
+                            <li>Language and Identity</li>
+                            <li>Translation Studies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faculty Section -->
+    <section id="faculty" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Faculty</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-3 text-center">
+                    <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Dr. Adebayo" class="faculty-img">
+                    <h3>Dr. Folake Adebayo</h3>
+                    <p class="text-muted">Yoruba Language & Literature</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Prof. Okonkwo" class="faculty-img">
+                    <h3>Prof. Chinedu Okonkwo</h3>
+                    <p class="text-muted">Igbo Cultural Studies</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Dr. Bello" class="faculty-img">
+                    <h3>Dr. Aminu Bello</h3>
+                    <p class="text-muted">Hausa Linguistics</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Dr. Osinowo" class="faculty-img">
+                    <h3>Dr. Yemisi Osinowo</h3>
+                    <p class="text-muted">Ijebu Dialect Studies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admissions Section -->
+    <section id="admissions" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Admissions</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Requirements</h3>
+                            <ul>
+                                <li>High school diploma or equivalent</li>
+                                <li>Personal statement of interest</li>
+                                <li>Demonstrated interest in Nigerian culture</li>
+                                <li>Language proficiency test (for advanced placement)</li>
+                                <li>Letters of recommendation (2)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Application Deadlines</h3>
+                            <ul>
+                                <li>Fall Semester: May 15</li>
+                                <li>Spring Semester: November 1</li>
+                                <li>Summer Intensive: March 15</li>
+                            </ul>
+                            <div class="alert alert-info mt-3">
+                                <strong>Note:</strong> Late applications may be considered on a case-by-case basis.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Tuition & Aid</h3>
+                            <p>We offer competitive tuition rates and various scholarship opportunities:</p>
+                            <ul>
+                                <li>Cultural Heritage Scholarship</li>
+                                <li>Language Preservation Grant</li>
+                                <li>Need-based Financial Aid</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary mt-3">Financial Aid Information</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-primary btn-lg">Begin Application</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Contact Us</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Department of Language & Tradition</h3>
+                            <p><i class="bi bi-envelope me-2"></i> languages@ytroz.edu</p>
+                            <p><i class="bi bi-telephone me-2"></i> (555) 987-6543</p>
+                            <p><i class="bi bi-geo-alt me-2"></i> 123 Cultural Heritage Building, YTROZ College</p>
+                            <hr>
+                            <h5>Office Hours</h5>
+                            <p>Monday-Friday: 9am - 5pm</p>
+                            <p>Saturday: 10am - 2pm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Send Us a Message</h3>
+                            <form id="contactForm">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="language" class="form-label">Language of Interest</label>
+                                    <select class="form-select" id="language">
+                                        <option value="">Select a language</option>
+                                        <option value="yoruba">Yoruba</option>
+                                        <option value="igbo">Igbo</option>
+                                        <option value="hausa">Hausa</option>
+                                        <option value="ijebu">Ijebu</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control" id="message" rows="3" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>YTROZ College</h5>
+                    <p>Dedicated to preserving and promoting Nigeria's rich cultural heritage through education and research.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Academic Calendar</a></li>
+                        <li><a href="#">Course Catalog</a></li>
+                        <li><a href="#">Student Resources</a></li>
+                        <li><a href="#">Alumni Network</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Connect With Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="me-2"><i class="bi bi-facebook fs-4"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-twitter fs-4"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-instagram fs-4"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-linkedin fs-4"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-youtube fs-4"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 YTROZ College of Language & Tradition. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Function to show language details when clicking "Learn More"
+        function showLanguage(language) {
+            const tab = document.getElementById(`${language}-tab`);
+            const tabInstance = new bootstrap.Tab(tab);
+            tabInstance.show();
+            
+            // Scroll to the language details section
+            document.getElementById('languageDetails').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you soon.');
+            this.reset();
+        });
+        
+        // Initialize tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    </script>
+</body>
+</html>

@@ -46,6 +46,10 @@
                 transform: scale(1.1);
             }
         }
+
+        span{
+            border: 2px solid white;
+        }
         
         .overlay {
             position: fixed;
@@ -303,7 +307,8 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Ytroz<span>College</span></a>
+            <img src="/images.png" alt="" width="8%">
+            <a class="navbar-brand" href="/index.html">Ytroz<span>College</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -753,6 +758,6 @@
         // Animation for curriculum items when they come into view
         const curriculumItems = document.querySelectorAll('.curriculum-item');
         
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if
+        // const observer = new IntersectionObserver((entries) => {
+            // entries.forEach(entry => {
+                // if
